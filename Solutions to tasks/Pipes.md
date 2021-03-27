@@ -214,10 +214,13 @@ cat $(find / -readable -type f -name *\.c -print 2>/dev/null) | wc -l
 
 ---
 **03-b-9000.txt**
+
 `find / -type f -maxdepth 3 -mmin -15 2>>/dev/null -exec stat -c="%n : %y" {} \; > ~/eternity`
 
 ---
 **03-b-9051.txt**
+
 `cat ~/population.csv | grep ",2008," | cut -d , -f 4 | awk '{s+=$1} END {print s}'`
+
 Не работи, мисля, че е защото променливата в awk не достига
 
