@@ -224,3 +224,67 @@ cat $(find / -readable -type f -name *\.c -print 2>/dev/null) | wc -l
 
 Не работи, мисля, че е защото променливата в awk не достига
 
+---
+**03-b-9052.txt**
+
+`cat ~/population.csv | grep Bulgaria |sed "s/,/ /g" | sort -rn -k 4 | head -1`
+
+---
+**03-b-9053.txt**
+
+`cat ~/population.csv | sed "s/,/ /g" | grep " 2016 " | sort -n -k 4 | awk 'NR==1; END{print}'`
+
+Не разбирам awk-то, защото го копирах от интернет
+
+---
+**03-b-9053.txt**
+
+`cat ~/population.csv | sed "s/,/ /g" | grep " 1969 " | sort -n -k 4 | head -42 | tail -n 1`
+
+
+---
+**03-b-9100.txt**
+
+`wget "http://fangorn.uni-sofia.bg/misc/songs.tar.gz"`
+
+---
+**03-b-9102.txt**
+
+`find * | cut -d - -f 2 | cut -d "(" -f 1`
+
+---
+**03-b-9103.txt**
+
+`find * | cut -d - -f 2 | cut -d "(" -f 1 | tr [A-Z] [a-z] | sed "s/ /_/g" | sed "s/^_//g" | sed "s/_$//g"`
+
+---
+**03-b-9104.txt**
+
+`find * | cut -d "(" -f 2 | cut -d ")" -f 1 | sed "s/ /_/g" | sed "s/_\([[:digit:]]\)/ \1/g" | sort -nr -k 2 | sed "s/_/ /g"`
+
+---
+**03-b-9105.txt**
+
+`find * | grep --color -i "pink\|beatles" | grep -vi "floyd"`
+
+`find * | grep --color -i "pink -\beatles"`
+
+Първият вариант ми харесва повече
+
+---
+**03-b-9105.txt**
+
+`mkdir $(find * | cut -d - -f 1 | tr -d " " | uniq)`
+
+---
+**03-b-9200.txt**
+
+`find * -perm $(stat -c "%a" $(find  /etc/* -maxdepth 0 -type f -printf "%p %s \n" | sort -n -k 2 | tail -n1 | cut -d " " -f1))`
+
+---
+**03-b-9300.txt**
+
+`cat ~/email_addreses | grep --color "^[[:alnum:]]\+@\|^_\+@"`
+
+
+
